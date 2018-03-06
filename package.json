@@ -1,0 +1,29 @@
+{
+  "name": "haxe-coconut-tetris",
+  "version": "0.0.0",
+  "description": "Tetris",
+  "main": "bin/index.html",
+  "bin": {
+    "examples-todomvc": "tetris.js"
+  },
+  "dependencies": {
+    "haxeshim": "^0.8.9",
+    "less": "2.7.2",
+    "lix.pm": "^0.8.0",
+    "switchx": "^0.11.3"
+  },
+  "scripts": {
+	"travix": "haxe -lib travix --run travix.Travix",
+    "postinstall": "switchx install && lix download",
+    "build": "haxe tetris.hxml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarXector/haxe-coconut-tetris.git"
+  },
+  "keywords": [
+    "tetris, MVCoconut, haxe"
+  ],
+  "author": "Marko Ristic",
+  "license": "MIT"
+}

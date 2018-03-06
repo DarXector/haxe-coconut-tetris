@@ -1,0 +1,17 @@
+{
+  "name": "haxe-coconut-tetris",
+  "license": "MIT",
+  "tags": [
+    "haxe",
+    "js",
+    "tetris",
+    "mvcoconut"
+  ],
+  "classPath": "src",
+  "contributors": [
+    "DarXector"
+  ],
+  "releasenote": "initial release",
+  "version": "0.0.0",
+  "dependencies": {}
+}

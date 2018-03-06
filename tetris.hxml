@@ -1,0 +1,8 @@
+-lib coconut.ui
+-lib coconut.vdom
+-lib coconut.data
+-lib lessie
+-cp src
+-dce full
+-main Tetris
+-js bin/tetris.js
