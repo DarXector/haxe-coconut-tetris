@@ -1301,7 +1301,7 @@ tetris_data_GameModel.prototype = {
 	}
 	,lockIn: function(piece) {
 		var _gthis = this;
-		var ret = tink_core__$Promise_Promise_$Impl_$.ofOutcome(tink_core_Outcome.Success({ lockedBoard : _gthis.setPiece(piece)}));
+		var ret = tink_core__$Promise_Promise_$Impl_$.ofOutcome(tink_core_Outcome.Success({ lockedBoard : _gthis.setPiece(piece,true)}));
 		var sync = true;
 		var done = false;
 		ret.handle(function(o) {
@@ -1429,17 +1429,19 @@ tetris_data_GameModel.prototype = {
 		});
 		return validSpace;
 	}
-	,setPiece: function(piece) {
+	,setPiece: function(piece,locked) {
+		if(locked == null) {
+			locked = false;
+		}
 		var board = tetris_data_GameModel.getBoardArray(this.get_lockedBoard());
 		if(piece != null) {
 			piece.get_shape().foreEach(piece.get_rotation(),piece.get_position(),function(x,y,value) {
 				if(value == 1) {
-					board[y][x] = piece.get_shape().get_className();
+					board[y][x] = locked ? tetris_data_Constants.LOCKED_CSS_CLASS : piece.get_shape().get_className();
 				}
 			});
 		}
-		var list = tetris_data_GameModel.getBoardList(board);
-		return list;
+		return tetris_data_GameModel.getBoardList(board);
 	}
 	,get_piece: function() {
 		return tink_state__$State_State_$Impl_$.get_value(this.__coco_piece);
@@ -4340,7 +4342,8 @@ haxe_ds_ObjectMap.count = 0;
 js_Boot.__toStr = ({ }).toString;
 tetris_data_Constants.BOARD_HEIGHT = 20;
 tetris_data_Constants.BOARD_WIDTH = 10;
-tetris_data_Constants.FRAME_TIME = 800;
+tetris_data_Constants.FRAME_TIME = 300;
+tetris_data_Constants.LOCKED_CSS_CLASS = "shape-locked";
 tink_pure__$List_Node.EMPTY = [];
 O.stack = new List();
 O.scheduled = [];

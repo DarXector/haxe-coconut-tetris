@@ -184,7 +184,7 @@ class GameModel implements Model
 	 */
 	@:transition function lockIn(piece:Piece) 
 	{
-		return {lockedBoard: setPiece(piece)};
+		return {lockedBoard: setPiece(piece, true)};
 	}
 	
 	/**
@@ -260,11 +260,12 @@ class GameModel implements Model
 	}
 
 	/**
-	 * Set the piece on the new position by marking the board fields with the piece CSS class name 
+	 * Set the piece on the new position by marking the board fields with the piece or locked CSS class name 
 	 * @param	piece [Piece]
+	 * @param	locked [Bool]
 	 * @return 	[List<List<String>>]
 	 */
-	private function setPiece(piece: Piece):List<List<String>>
+	private function setPiece(piece: Piece, ?locked:Bool = false):List<List<String>>
 	{
 		var board = getBoardArray(lockedBoard);
 
@@ -274,14 +275,12 @@ class GameModel implements Model
 			{
 				if (value == 1)
 				{
-					board[y][x] = piece.shape.className;
+					board[y][x] = locked? Constants.LOCKED_CSS_CLASS : piece.shape.className;
 				}
 			});
 		}
 		
-		var list = getBoardList(board);
-		
-		return list;
+		return getBoardList(board);
 	}
 
 	/**

@@ -7,6 +7,9 @@ table {
 .shape {
   background: #ff0000;
 }
+.shape-locked {
+  background: #ffffff;
+}
 .shape-i {
   background: #ff0000;
 }
