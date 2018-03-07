@@ -1,5 +1,7 @@
 # Tetris Game
 
+[![Build Status](https://travis-ci.org/DarXector/haxe-coconut-tetris.svg?branch=master)](https://travis-ci.org/DarXector/haxe-coconut-tetris)
+
 A simple tetris game developed in Haxe and using MVCoconut library 
 
 ## Setup and Build
